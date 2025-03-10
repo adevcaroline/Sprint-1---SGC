@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Vazamento de Gás</title>
+   
+</head>
+
+<body>
+   
+        <h2>Calculadora de Vazamento de Gás</h2>
+        <h3>Área do ambiente (m²):</h3>
+        <input type="number" id="input_area" >
+
+        <h3>Altura do ambiente (m):</h3>
+        <input type="number" id="input_altura" >
+
+        <h3>Concentração de gás (ppm):</h3>
+        <input type="number" id="input_ppm" >
+
+        <h3>Quantos apartamentos? (ap) </h3>
+        <input type="number" id="input_ap" >
+
+        <h3>Preço do gás (R$ por kg):</h3>
+        <input type="number" id="input_preco" >
+        <br><br>
+
+
+
+        <button onclick="calcularVazamento()">Calcular</button>
+
+        <div id="div_mensagem"></div> 
+
+    <script>
+        function calcularVazamento() {
+            var area = Number(input_area.value);
+            var altura = Number(input_altura.value);
+            var ppm = Number(input_ppm.value);  
+            var preco = Number(input_preco.value);
+            var ap = Number(input_ap.value);
+
+            var volume = area * altura;
+            var densidade = (ppm * 58) / 24.45;
+            var massaGas = densidade * volume / 1000; // Convertendo mg para g
+            var custoVazamento = (massaGas / 1000) * preco; // Convertendo g para kg
+            
+
+            div_mensagem.innerHTML = `Densidade: ${densidade.toFixed(2)} mg/m³\nMassa total: ${massaGas.toFixed(2)} g\nCusto estimado do vazamento: R$ ${ap*custoVazamento. toFixed(2) }`;
+        }
+    </script>
+</body>
+
+</html>
