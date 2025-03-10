@@ -33,7 +33,7 @@ idMedicao int primary key auto_increment,
 dataHora datetime default current_timestamp,
 concentracaoGases int not null,
 statusAlerta varchar(30),
-taxaConcentacao int,
+taxaConcentracao int,
  check (taxaConcetracao in (15, 30, 50)),
 constraint chkStatus
  check( statusAlerta in ('Normal', 'Atenção', 'Crítico')));
@@ -47,17 +47,25 @@ insert into cadastro (nome, senha, email) values
     ('Letícia Rodrigues', 'leticinha2000', 'leticia.rodrigues@sptech.com'),
     ('Rayssa Casagrande', 'rayssinha2000', 'rayssa.casagrande@sptech.com');
     
-insert into sensor (nome, tipo, taxaConcetracao) values
-    ('MQ-2', 'Sensor de gás', 15),
-    ('MQ-2', 'Sensor de gás', 30),
-    ('MQ-2', 'Sensor de gás', 50);
+insert into sensor (nome, statusSensor, tipo) values
+    ('MQ-2', 'Ativo','Sensor de gás'),
+    ('MQ-2', 'Inativo','Sensor de gás'),
+    ('MQ-2', 'Ativo','Sensor de gás');
     
 insert into condominio (nome, logradouro, cep, numero, cnpj) values
 	('Osasco Residencial Life', 'Avenida O Trabuco Jornal ', '02723456', 247, '12345678000190'),
 	('Osasco Residencial Death', 'O Vale da Morte', '66666666', 666, '12345678000191'),
 	('Osasco Residencial Sky', 'O Vale da Vida', '77777777', 777, '12345678000192');
     
-select * from cadastro;
-select * from sensor;
-select * from condominio;
+insert into medicao (dataHora, concentracaoGases, statusAlerta, taxaConcentracao) values
+('2025-02-02 08:00:00', 400, 'Normal', 15),
+('2025-02-20 08:00:00', 3000, 'Atenção', 30),
+('2025-02-25 08:00:00', 5000, 'Crítico', 50);
+
+    
+select * from cadastro where nome like '%a';
+select * from sensor where statusSensor like 'Ativo';
+select * from condominio where nome like 'Osasco';
+
+
 
