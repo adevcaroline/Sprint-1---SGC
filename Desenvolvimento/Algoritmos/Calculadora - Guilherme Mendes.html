@@ -5,32 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Financeira</title>
 </head>
-<body>
-<h1>Safe Gas Company</h1>
-    <h2>Calculadora Financeira <br>
+<body style="background-color:rgb(250, 235, 215)">
+<h1 style="color: red;" >Safe Gas Company</h1>
+    <h2 style="color:darkslategrey;">Calculadora Financeira <br>
         Vazamento de Gás</h2>
 
     Quantos apartamentos por andar? 
-    <input type="text" id="input_ap" ><br><br>
+    <input type="number" id="input_ap" style="background-color:darkgray;" ><br><br>
 
     Quantos andares? 
-    <input type="text" id="input_andar" ><br><br>
+    <input type="number" id="input_andar" style="background-color:darkgray;" ><br><br>
 
     Quantos metros possui(m²):
-    <input type="text" id="input_area" > <br><br>
+    <input type="number" id="input_area" style="background-color:darkgray;" > <br><br>
 
     Altura do ambiente em metros :
-    <input type="text" id="input_altura" ><br><br>
+    <input type="number" id="input_altura" style="background-color:darkgray;"><br><br>
 
     Preço do gás (R$ por kg):
-    <input type="text" id="input_preco" > <br><br>
+    <input type="number" id="input_preco" style="background-color:darkgray;"> <br><br>
 
 
     Concentração de gás (ppm):
-    <input type="text" id="input_concentracao" ><br><br>
-    <button onclick="calcularVazamento()">Calcular</button>
+    <input type="text" id="input_concentracao"style="background-color:darkgray;" ><br><br>
+    <button onclick="calcularVazamento()" style="background-color: darkgray;">Calcular</button>
     <div id="div_mensagem"></div> 
-
+        
 </body>
 
 <script>
@@ -50,8 +50,10 @@
         var custoVazamento = (massaGas / 1000) * preco; // Convertendo g para kg
         
 
-        div_mensagem.innerHTML = ` <br> Seu condominio possui um total de ${qtdap} apartamentos. <br>
-                                    Cada apartamento tendo uma area total de ${areaTotal}m. <br>
-                                    E com uma densidade: ${densidade.toFixed(2)} mg/m³\nMassa total: ${massaGas.toFixed(2)} g\nCusto estimado do vazamento: R$ ${ areaTotal * qtdap *custoVazamento.toFixed(2) }`;
+        div_mensagem.innerHTML = ` <br> <b style="color: dimgrey;">Seu condominio possui um total de <b style="color: red;">${qtdap} apartamentos</b> . <br>
+                                   <b style="color: dimgrey;"> Cada apartamento tendo uma area total de <b style="color: red;">${areaTotal} m</b> . <br>
+                                    <b style="color: dimgrey;">E com uma densidade: <b style="color: red;">${densidade.toFixed(2)}mg/m³</b> .<br>
+                                    <b style="color: dimgrey;"> Massa total: <b style="color: red;">${massaGas.toFixed(2)} g.</b> <br>
+                                    <b style="color: dimgrey;"> Custo estimado do vazamento:  <b style="color: red;">R$ ${areaTotal * qtdap *custoVazamento.toFixed(2) }.</b> `;
     }
 </script>
