@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira - Vazamento de Gás</title>
+</head>
+
+<body>
+    <h2>Calculadora Financeira de Vazamento de Gás</h2>
+    Apartamentos afetados: <input id='input_aptsAfetados' type='number'>
+    <br>
+    Custo de reparos (R$): <input id='input_custoReparos' type='number'>
+    <br>
+    Custo com indenizações (R$): <input id='input_custoIndenizacoes'>
+    <br>
+    Custo de manutenção preventiva (R$): <input id='input_custoManutencaoPreventiva'>
+    <br>
+    Custo para refazer tubos (R$): <input id='input_custoRefazerTubos' type='number'>
+    <br>
+    <button onclick='calcularPrejuizo()'>Calcular</button>
+    <h3 id='resultado'></h3>
+
+    <script>
+        function calcularPrejuizo() {
+            var aptsAfetados = Number(input_aptsAfetados.value)
+            var custoReparos = Number(input_custoReparos.value)
+            var custoIndenizacoes = Number(input_custoIndenizacoes.value)
+            var custoManutencaoPreventiva = Number(input_custoManutencaoPreventiva.value)
+            var custoRefazerTubos = Number(input_custoRefazerTubos.value)
+
+            var prejuizoTotal = (aptsAfetados * 1000) + custoReparos + custoIndenizacoes + custoManutencaoPreventiva + custoRefazerTubos;
+
+            resultado.innerHTML = `Prejuízo estimado: R$ ${prejuizoTotal.toFixed(2)}`;
+        }
+    </script>
+</body>
+
+</html>
