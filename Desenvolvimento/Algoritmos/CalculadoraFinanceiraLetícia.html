@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira Letícia</title>
+</head>
+<body>
+    
+<h2>Calculadora de Economia em Instalação de Sensores de Gás - Safe Gas Company</h2>
+
+<p>OBS: digite apenas números</p>
+
+<p>Custo de Instalação por edíficio (SGC):</p>
+<input id="inst" type="text">
+
+<p>Custo anual de manutenção dos sensores (SGC):</p>
+<input id="manutencao" type="text">
+
+<p>Custo médio de danos em caso de vazamento (1 apto):</p>
+<input id="danos" type="text">
+
+<p>Custo anterior de seguros (valor anual):</p>
+<input id="seguros" type="text">
+
+<br><br>
+
+<button onclick="vereconomia()">Ver economia</button>
+
+<br><br>
+
+<div id="mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function vereconomia() {
+        var CustoInstalacao = Number (inst.value)
+        var CustoDanos = Number (danos.value)
+        var CustoSeguros = Number (seguros.value)
+        var CustoManutencao = Number (manutencao.value)
+        gastos = CustoSeguros + CustoDanos
+        custo = CustoInstalacao + CustoManutencao
+        economia = gastos - custo
+        mensagem.innerHTML = `<b style="color: red"> Os gastos sem a SGC seriam de: R$${gastos} </b><br><br>`
+        mensagem.innerHTML += `<b style="color: purple"> O custo por edifício com a SGC seria de: R$${custo} no 1º ano </b><br><br>`
+        mensagem.innerHTML += `<b style="color: blue"> O custo por edifício com a SGC seria de: R$${CustoManutencao} a partir do 2º ano </b><br><br>`
+        mensagem.innerHTML += `<b style="color: green"> A economia média com a SGC seria de: R$${economia} `
+    }
+
+</script>
