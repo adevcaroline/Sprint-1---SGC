@@ -10,25 +10,22 @@
 
 <body>
    
-        <h2>Calculadora de Vazamento de Gás</h2>
-        <h3>Área do ambiente (m²):</h3>
-        <input type="number" id="input_area" >
+        <h2>Calculadora de Vazamento de Gás Natural</h2>
+        <h4>Área do ambiente (m²):
+        <input type="number" id="input_area" ></h4>
 
-        <h3>Altura do ambiente (m):</h3>
-        <input type="number" id="input_altura" >
+        <h4>Altura do ambiente (m):
+        <input type="number" id="input_altura" ></h4>
 
-        <h3>Concentração de gás (ppm):</h3>
-        <input type="number" id="input_ppm" >
+        <h4>Concentração de gás (ppm):
+        <input type="number" id="input_ppm" ></h4>
 
-        <h3>Quantos apartamentos? (ap) </h3>
-        <input type="number" id="input_ap" >
+        <h4>Quantos apartamentos? 
+        <input type="number" id="input_ap" ></h4>
 
-        <h3>Preço do gás (R$ por kg):</h3>
-        <input type="number" id="input_preco" >
-        <br><br>
-
-
-
+        <h4>Preço do gás (R$ por kg):
+        <input type="number" id="input_preco" ></h4>
+        
         <button onclick="calcularVazamento()">Calcular</button>
 
         <div id="div_mensagem"></div> 
@@ -47,7 +44,7 @@
             var custoVazamento = (massaGas / 1000) * preco; // Convertendo g para kg
             
 
-            div_mensagem.innerHTML = `Densidade: ${densidade.toFixed(2)} mg/m³\nMassa total: ${massaGas.toFixed(2)} g\nCusto estimado do vazamento: R$ ${ap*custoVazamento. toFixed(2) }`;
+            div_mensagem.innerHTML = `Densidade: ${densidade.toFixed(2)} mg/m³\n <br> Massa total: ${massaGas.toFixed(2)} g\n <br> Custo estimado do vazamento: R$ ${ap*custoVazamento. toFixed(2) }`;
         }
     </script>
 </body>
